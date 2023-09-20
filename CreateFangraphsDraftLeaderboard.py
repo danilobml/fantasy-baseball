@@ -6,6 +6,7 @@
 
 
 import pandas as pd
+pd.options.mode.chained_assignment = None
 #cd db (make sure you're in the correct folder
 #Upload the hitters projections cv from export data button on:
     #https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc
@@ -126,4 +127,8 @@ if ask.lower() == 'y':
 
 #Let's send this to a csv.
 #We'll upload it to a google doc so that everyone can choose their players there.
-leaderboard_final.to_csv('DraftLeaderboard2022.csv', sep=',')
+#leaderboard_final.to_csv('DraftLeaderboard2022.csv', sep=',')
+
+
+def create_leaderboard():
+    return leaderboard_final.to_json(orient='records')
